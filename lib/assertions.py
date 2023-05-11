@@ -55,3 +55,15 @@ class Assertions:
         assert response.text == expected_message, \
             f"Ответ не равен {expected_message}. Ответ {response.text}"
 
+    @staticmethod
+    def assert_message_decode_utf_8(response: Response, expected_message):
+        response_decode = response.content.decode("utf-8")
+        assert response_decode == expected_message, \
+            f"Ответ не равен '{expected_message}'. Ответ '{response_decode}'"
+
+    @staticmethod
+    def assert_equality(param1, param2):
+        assert param1 == param2, f"'{param1}' не равен '{param2}'"
+
+
+
